@@ -1,0 +1,12 @@
+datomic --> Base de datos
+ clojure --  Lenguaje para la BD
+
+Programacion funcional
+https://github.com/gcoronelc/SISTUNI_CLOUD_003.git
+
+Teorema de pareto
+
+SPA ?? single page aplication
+
+framerwork ORM(hiberanate) vd framerow JDBC Mybatys
+
