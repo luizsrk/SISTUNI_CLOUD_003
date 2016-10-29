@@ -8,13 +8,15 @@
 <h:head></h:head> 
 <body> 
   <h:form>
-    <h1>CONSULTA DE MOVIMIENTOS JOsmil</h1>
+    <h1>CONSULTA DE MOVIMIENTOS</h1>
     <h:panelGrid columns="3">
       <label>Cuenta:</label>
       <h:inputText value="#{cuentaController.cuenta}" />
       <h:commandButton action="#{cuentaController.doConsultar()}" 
                        value="Consultar" />
     </h:panelGrid>
+    
+    <h:messages showDetail="true" showSummary="true" />
     
     <c:if test="${not empty cuentaController.lista}">
     
