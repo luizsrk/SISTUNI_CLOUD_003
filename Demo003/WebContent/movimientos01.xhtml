@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+<h:head></h:head> 
+<body> 
+  <h:form>
+    <h1>CONSULTA DE MOVIMIENTOS</h1>
+    <h:panelGrid columns="3">
+      <label>Cuenta:</label>
+      <h:inputText value="#{cuentaController.cuenta}" />
+      <h:commandButton action="#{cuentaController.doConsultar()}" 
+                       value="Consultar" />
+    </h:panelGrid>
+    
+    <c:if test="${not empty cuentaController.lista}">
+    
+      <h:dataTable value="#{cuentaController.lista}" var="r">
+      
+        <h:column>
+          <f:facet name="header">NRO.MOV.</f:facet>
+          <h:outputText value="${r.MOVINUMERO}" />
+        </h:column>
+      
+        <h:column>
+          <f:facet name="header">FECHA</f:facet>
+          <h:outputText value="${r.MOVIFECHA}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">TIPO</f:facet>
+          <h:outputText value="${r.TIPONOMBRE}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">IMPORTE</f:facet>
+          <h:outputText value="${r.MOVIIMPORTE}" />
+        </h:column>
+      
+      </h:dataTable>
+    
+    </c:if>
+  
+  </h:form>
+</body> 
+</html>
