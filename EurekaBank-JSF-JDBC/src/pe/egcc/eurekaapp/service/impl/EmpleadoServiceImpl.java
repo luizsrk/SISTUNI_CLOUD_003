@@ -35,7 +35,6 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
     Empleado bean = null;
     Connection cn = null;
     try {
-    	System.out.println("connection");
       cn = AccesoDB.getConnection();
       String sql = "select chr_emplcodigo,vch_emplpaterno,"
               + "vch_emplmaterno,vch_emplnombre, "

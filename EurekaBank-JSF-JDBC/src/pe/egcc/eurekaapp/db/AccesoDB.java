@@ -18,10 +18,9 @@ public final class AccesoDB {
 
   public static Connection getConnection() throws SQLException {
     Connection cn = null;
-    System.out.println("log");
     // Parámetros
     String driver = "oracle.jdbc.OracleDriver";
-    String urlDB = "jdbc:oracle:thin:@localhost:1521:XE";
+    String urlDB = "jdbc:oracle:thin:@localhost:1521:MARTE";
     String user = "eureka";
     String pass = "admin";
     try {

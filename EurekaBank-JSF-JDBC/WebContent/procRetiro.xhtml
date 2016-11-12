@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+  <body>
+
+    <ui:composition template="./plantilla/Plantilla.xhtml">
+
+      <ui:define name="content">
+      
+        <h:form id="formData" style="margin:10px;">
+        
+          <h1>PROCESO RETIRO</h1>
+          
+          <p:growl showDetail="true" showSummary="true" />
+          
+          <p:panelGrid columns="2">
+          
+            <p:outputLabel>Cuenta:</p:outputLabel>
+            <p:inputText value="#{cuentaController.cuenta}" />
+            
+            <p:outputLabel>Importe:</p:outputLabel>
+            <p:inputText value="#{cuentaController.importe}" />
+            
+            <p:outputLabel>Clave:</p:outputLabel>
+            <p:password value="#{cuentaController.clave}" />
+          
+          </p:panelGrid>
+          
+          <p:commandButton value="Procesar" 
+              process="@form" update="formData"
+            action="#{cuentaController.doProcRetiro}" />
+        
+        </h:form>
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Facelet Title</title>
+</h:head>
+<h:body>
+	<h:form>
+
+		<!-- Cabecera -->
+		<div>
+			<table width="100%">
+				<tr>
+					<td width="50%">EUREKABANK</td>
+					<td>Usuario: ${logonController.usuario}
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Menú -->
+		<div>
+
+			<p:menubar>
+				<p:submenu label="Archivo" icon="ui-icon-document">
+					<p:menuitem value="Salir" icon="ui-icon-close" action="#{logonController.doSalir()}" />
+				</p:submenu>
+
+				<p:submenu label="Procesos" icon="ui-icon-pencil">
+					<p:menuitem value="Crear cuenta" url="#"/>
+					<p:menuitem value="Depósito" url="#" />
+					<p:menuitem value="Retiro" url="/faces/procRetiro.xhtml" />
+					<p:menuitem value="Transferencia" url="#" />
+					<p:menuitem value="Cierre de cuenta" url="#" />
+				</p:submenu>
+
+        <p:submenu label="Tablas" icon="ui-icon-calculator">
+          <p:menuitem value="Clientes" url="#"/>
+          <p:menuitem value="Empleados" url="#" />
+          <p:menuitem value="Sucursales" url="#" />
+        </p:submenu>
+
+        <p:submenu label="Consultas" icon="ui-icon-lightbulb">
+          <p:menuitem value="Movimientos"  url="/faces/conMovimientos.xhtml"/>
+          <p:menuitem value="Resumen 1" url="#" />
+          <p:menuitem value="Resumen 2" url="#" />
+        </p:submenu>
+        
+        <p:submenu label="Reportes" icon="ui-icon-document">
+          <p:menuitem value="Movimientos" url="#"/>
+          <p:menuitem value="Resumen 1" url="#" />
+          <p:menuitem value="Resumen 2" url="#" />
+        </p:submenu>
+
+        <p:submenu label="Util" icon="ui-icon-document">
+          <p:menuitem value="Cambio de clave" url="#"/>
+        </p:submenu>
+        
+			</p:menubar>
+
+
+		</div>
+
+
+	</h:form>
+</h:body>
+</html>
+
