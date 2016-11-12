@@ -20,7 +20,7 @@ public final class AccesoDB {
     Connection cn = null;
     // Parámetros
     String driver = "oracle.jdbc.OracleDriver";
-    String urlDB = "jdbc:oracle:thin:@172.17.1.193:1521:QUIPU";
+    String urlDB = "jdbc:oracle:thin:@localhost:1521:MARTE";
     String user = "eureka";
     String pass = "admin";
     try {
