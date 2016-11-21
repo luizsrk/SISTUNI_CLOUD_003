@@ -30,13 +30,13 @@ join sucursal su on c.chr_sucucodigo = su.chr_sucucodigo;
 
 
 
-select * from v_cuenta
-where cuencodigo='00100002';
+--select * from v_cuenta
+--where cuencodigo='00100002';
 
 
-select cuencodigo, monenombre,
-cuensaldo, cuenestado
-from v_cuenta where cuencodigo = ?;
+--select cuencodigo, monenombre,
+--cuensaldo, cuenestado
+--from v_cuenta where cuencodigo = ?;
 
 
 
