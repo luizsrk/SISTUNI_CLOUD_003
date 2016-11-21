@@ -16,5 +16,6 @@ public interface CuentaServiceEspec {
 
   List<Map<String,?>> getMovimientos(String cuenta);
   
+  void procDeposito(String cuenta, double importe, String codEmp);
   
 }

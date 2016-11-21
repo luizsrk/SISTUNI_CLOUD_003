@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+
+	<ui:composition template="./plantilla/Plantilla.xhtml">
+
+		<ui:define name="content">
+
+			<h1>CONSULTA EMPLEADOS</h1>
+			<h:form>
+
+				<h:panelGrid columns="5">
+
+					<h:outputLabel value="Código" />
+					<h:outputLabel value="Paterno" />
+					<h:outputLabel value="Materno" />
+					<h:outputLabel value="Nombre" />
+					<h:outputLabel value="Ciudad" />
+
+					<h:inputText value="#{empleadoController.empleado.codigo}" />
+					<h:inputText value="#{empleadoController.empleado.paterno}" />
+					<h:inputText value="#{empleadoController.empleado.materno}" />
+					<h:inputText value="#{empleadoController.empleado.nombre}" />
+					<h:inputText value="#{empleadoController.empleado.ciudad}" />
+					<h:commandButton action="#{empleadoController.doConsultar()}"
+						value="Consultar" />
+
+				</h:panelGrid>
+
+				<h1>RESULTADO</h1>
+				<p:dataTable value="#{empleadoController.lista}" var="r">
+
+					<p:column headerText="CODIGO">
+						<h:outputText value="#{r.codigo}" />
+					</p:column>
+
+					<p:column headerText="PATERNO">
+						<h:outputText value="#{r.paterno}" />
+					</p:column>
+
+					<p:column headerText="MATERNO">
+						<h:outputText value="#{r.materno}" />
+					</p:column>
+
+					<p:column headerText="NOMBRE">
+						<h:outputText value="#{r.nombre}" />
+					</p:column>
+
+					<p:column headerText="CIUDAD">
+						<h:outputText value="#{r.ciudad}" />
+					</p:column>
+
+					<p:column headerText="DIRECCION">
+						<h:outputText value="#{r.direccion}" />
+					</p:column>
+
+					<p:column headerText="USUARIO">
+						<h:outputText value="#{r.usuario}" />
+					</p:column>
+
+					<p:column headerText="CONTRASEÑA">
+						<h:outputText value="#{r.clave}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+
+		</ui:define>
+
+	</ui:composition>
+
+</body>
+</html>

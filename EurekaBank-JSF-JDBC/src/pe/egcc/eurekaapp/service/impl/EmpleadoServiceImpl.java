@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pe.egcc.eurekaapp.db.AccesoDB;
+import pe.egcc.eurekaapp.model.Cliente;
 import pe.egcc.eurekaapp.model.Empleado;
 import pe.egcc.eurekaapp.service.espec.EmpleadoServiceEspec;
 
@@ -20,7 +22,10 @@ import pe.egcc.eurekaapp.service.espec.EmpleadoServiceEspec;
 public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
 
   private static final Logger LOGGER = Logger.getLogger(EmpleadoServiceImpl.class.getName());
-
+  
+	private final String SQL_SELECT = "select chr_emplcodigo, vch_emplpaterno, " + "vch_emplmaterno, vch_emplnombre, "
+			+ "vch_emplciudad, vch_empldireccion, " + "vch_emplusuario from empleado ";
+	
   /**
    * Valida el usuario y la clase en la BD. 
    * Si son correctos retorna un objeto de tipo Emplado. 
@@ -76,7 +81,38 @@ public class EmpleadoServiceImpl implements EmpleadoServiceEspec {
 
   @Override
   public List<Empleado> traerVarios(Empleado bean) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	    List<Empleado> lista = new ArrayList<>();
+	    Connection cn = null;
+	    try {
+	      cn = AccesoDB.getConnection();
+	      String sql = SQL_SELECT
+	              + " where chr_emplcodigo like concat(?,'%') "
+	              + " and vch_emplpaterno like concat(?,'%') "
+	              + " and vch_emplmaterno like concat(?,'%') "
+	              + " and vch_emplnombre like concat(?,'%') "
+	      		  + " and vch_emplciudad like concat(?,'%') ";
+	      PreparedStatement pstm;
+	      pstm = cn.prepareStatement(sql);
+	      pstm.setString(1, bean.getCodigo());
+	      pstm.setString(2, bean.getPaterno());
+	      pstm.setString(3, bean.getMaterno());
+	      pstm.setString(4, bean.getNombre());
+	      pstm.setString(5, bean.getCiudad());
+	      ResultSet rs = pstm.executeQuery();
+	      while (rs.next()) {
+	        lista.add(mapRow(rs));
+	      }
+	      rs.close();
+	      pstm.close();
+	    } catch (Exception e) {
+	      throw new RuntimeException(e.getMessage());
+	    } finally {
+	      try {
+	        cn.close();
+	      } catch (Exception e) {
+	      }
+	    }
+	    return lista;
   }
 
   @Override
