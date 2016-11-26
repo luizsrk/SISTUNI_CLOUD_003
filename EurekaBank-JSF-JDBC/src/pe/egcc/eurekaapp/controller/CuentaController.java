@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
@@ -17,7 +16,7 @@ import pe.egcc.eurekaapp.service.impl.CuentaServiceImpl;
 public class CuentaController {
 
 	private String cuenta;
-	private String moneda = "None";
+	private String moneda;
 	private double importe;
 	private String clave;
 	List<Map<String, ?>> lista;

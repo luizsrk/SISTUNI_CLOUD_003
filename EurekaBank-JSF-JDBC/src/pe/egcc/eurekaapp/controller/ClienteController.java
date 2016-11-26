@@ -1,5 +1,6 @@
 package pe.egcc.eurekaapp.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,9 +13,13 @@ import pe.egcc.eurekaapp.service.impl.ClienteServiceImpl;
 
 @ManagedBean
 @ViewScoped
-public class ClienteController {
+public class ClienteController implements Serializable {
 
-  private Cliente cliente;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 9123894594676411160L;
+private Cliente cliente;
   private List<Cliente> lista;
   
   @PostConstruct

@@ -1,14 +1,20 @@
 package pe.egcc.eurekaapp.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eric Gustavo Coronel Castillo
  * @blog www.desarrollasoftware.com
  * @email gcoronec@gmail.com
  */
-public class Empleado {
+public class Empleado implements Serializable {
 
-  private String codigo;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 758379146595054454L;
+private String codigo;
   private String paterno;
   private String materno;
   private String nombre;

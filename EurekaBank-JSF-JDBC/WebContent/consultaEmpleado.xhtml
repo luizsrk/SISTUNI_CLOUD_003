@@ -13,10 +13,10 @@
 		<ui:define name="content">
 
 			<h1>CONSULTA EMPLEADOS</h1>
-			<h:form>
-
+			<h:form id="formData">
+				<p:growl id="growl" life="2000" />
 				<h:panelGrid columns="5">
-
+					
 					<h:outputLabel value="Código" />
 					<h:outputLabel value="Paterno" />
 					<h:outputLabel value="Materno" />
@@ -28,8 +28,8 @@
 					<h:inputText value="#{empleadoController.empleado.materno}" />
 					<h:inputText value="#{empleadoController.empleado.nombre}" />
 					<h:inputText value="#{empleadoController.empleado.ciudad}" />
-					<h:commandButton action="#{empleadoController.doConsultar()}"
-						value="Consultar" />
+					<p:commandButton value="Consultar" process="@form" update="formData"
+						actionListener="#{empleadoController.doConsultar}" />
 
 				</h:panelGrid>
 
